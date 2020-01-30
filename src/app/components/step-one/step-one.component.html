@@ -1,0 +1,95 @@
+<!-- ingreso de datos -->
+
+<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+  <form [formGroup]="forma" (ngSubmit)="send(forma.value)" class="login100-form validate-form">
+    <span class="login100-form-title p-b-37">
+      Paso Uno
+    </span>
+
+
+
+    <!--     <div class="wrap-input100  m-b-20" style="display: flex;">
+      <select class=" input100 " style="      width: 50%;           border-right: 1px solid;      ">
+        <option value="">DNI</option>
+        <option value="">CE</option>
+      </select>
+      <input type="text" class=" input100" placeholder="N° De Documento">
+      <span class="focus-input100"></span>
+    </div>
+ -->
+
+
+    <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+
+      <input formControlName="name" class="input100" type="text" name="username" placeholder="Nombre">
+      <span class="focus-input100"></span>
+
+    </div>
+    <div *ngIf="name.invalid && (name.touched || name.dirty)">
+      Invalida
+      <div *ngIf="name.errors.required">
+        Es necesario Introducr
+      </div>
+    </div>
+
+
+
+    <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+      <input formControlName="email" class="input100" type="email" name="correo" placeholder="Correo Electronico">
+      <span class="focus-input100"></span>
+    </div>
+    <div *ngIf="forma.get('email').hasError('email') && forma.get('email').touched">
+      Es necesario Introducr
+    </div>
+
+    <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+      <input formControlName="cel" class="input100 " type="tel" name="pass" placeholder="Celular">
+      <span class="focus-input100"></span>
+    </div>
+
+
+
+    <div *ngIf="forma.get('cel').invalid && (forma.get('cel').touched || forma.get('cel').dirty)">
+      Invalida
+      <div *ngIf="forma.get('cel').errors.required"> II
+
+      </div>
+      <div *ngIf="forma.get('cel').errors.minlength">
+        9 digi
+      </div>
+    </div>
+
+
+
+    <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+      <div style="         display: flex;     ">
+        <p class="txt2">Agregar Otro</p> <img src="assets/css/ic_add.png" alt="">
+      </div>
+      <span class=""></span>
+    </div>
+
+    <!--  <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+      <input class="input100 " type="number" name="pass" placeholder="Celular">
+      <span class="focus-input100"></span>
+    </div>  -->
+
+
+    <div class="demo">
+      <input formControlName="protection" type="checkbox" id="acepto" name="acepto" checked>
+      <label for="acepto" class="txt2"><span></span>Acepto la <u>Política de Protección de Datos Personales</u> y
+        los <u>Términos y Condiciones.</u> </label>
+    </div>
+    <div class="demo">
+      <input formControlName="commercial" type="checkbox" id="acepto_1" name="acepto_1" checked>
+      <label for="acepto_1" class="txt2 "><span></span> Acepto la Política de Envío de <u>Comunicaciones
+          Comerciales.</u> </label>
+    </div>
+
+    <div class="container-login100-form-btn">
+      <button [disabled]="forma.invalid" type="submit" class="login100-form-btn">
+        Solicitar Crédito >
+      </button>
+    </div>
+  </form>
+
+</div>
