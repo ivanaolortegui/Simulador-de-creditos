@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { cellPhoneValidation } from '../../validations/cell-phone.directive';
 
 @Component({
   selector: 'app-step-one',
@@ -13,14 +14,14 @@ export class StepOneComponent implements OnInit {
     return this.forma.get('name')
   }
   get cel(){
-    return this.forma.get('cel')
+    return this.forma.get('cel');
   }
   constructor(private _builder: FormBuilder) {
     this.forma = this._builder.group({
       name: ['',Validators.required],
       email:['', Validators.compose([Validators.email, Validators.required])],
-      cel: ['', [Validators.required,Validators.minLength(9)]],
-      protection: [true],   
+      cel: ['', [Validators.required, Validators.minLength(9), cellPhoneValidation()]],
+      protection: [true],
       commercial: [true],
     })
   }

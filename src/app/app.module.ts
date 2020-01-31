@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StepOneComponent } from './components/step-one/step-one.component';
 import { HomeComponent } from './components/home/home.component';
+import { CellPhoneDirective } from './validations/cell-phone.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     StepOneComponent,
-    HomeComponent
+    HomeComponent,
+    CellPhoneDirective
   ],
   imports: [
     BrowserModule,

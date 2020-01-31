@@ -50,12 +50,16 @@
 
 
     <div *ngIf="forma.get('cel').invalid && (forma.get('cel').touched || forma.get('cel').dirty)">
-      Invalida
+      
       <div *ngIf="forma.get('cel').errors.required"> II
 
       </div>
       <div *ngIf="forma.get('cel').errors.minlength">
         9 digi
+      </div>
+      <div *ngIf="forma.get('cel').errors.cellPhoneValidation">
+      {{forma.get('cel').errors.cellPhoneValidation.message}}
+        v
       </div>
     </div>
 
